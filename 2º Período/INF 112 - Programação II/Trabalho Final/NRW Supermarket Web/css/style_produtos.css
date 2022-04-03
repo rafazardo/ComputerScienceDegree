@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Anton';
+    src: url('../fonts/Anton-Regular.ttf'); ;
+}
+    
+@font-face {
+    font-family: 'Thin';
+    src: url('../fonts/Vds-Thin.ttf');
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(0, azure, #16DB65);
+}
+
+table, th, td {
+    border: 5px solid;
+    border-collapse: collapse;
+    padding: 10px;
+    border-style: inset;
+    border-color: #04471C;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    font-family: 'Anton';
+    height: 40px;
+    background: linear-gradient(0, azure, #16DB65);
+}
+
+td {
+    font-family: 'Thin';
+    text-align: center;
+}
+
+tr:hover {
+    background-color: blueviolet;
+}
+
+.botoesHeader {
+    text-align: center;
+}
+
+.botoesHeader a {
+    border-style: solid;
+    padding: 10px;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: none;
+    font-family: 'Thin';
+    margin-top: 50px;
+    display: inline-block;
+    width: 25%;
+} 
+  
+.botoesHeader a:hover {
+    background-color: white;
+    border-color: white;
+    color: black;
+}

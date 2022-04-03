@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../NRW Supermarket Web/css/style_funcionarios.css">
+    <link rel="icon" href="../NRW Supermarket Web/css/imgs/dolly-solid.svg">
+    <title>NRW Supermarket Web - Funcionários</title>
+</head>
+<body>
+    <table>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Cargo</th>
+          <th>Código</th>
+          <th>Senha</th>
+        </tr>
+        <tr>
+          <td>Roberto Costa</td>
+          <td>roberto.costa@gmail.com</td>
+          <td>Gerente</td>
+          <td>1</td>
+          <td>1roberto</td>
+        </tr>
+        <tr>
+          <td>Ana Clara</td>
+          <td>clara.lispector@gmail.com</td>
+          <td>Caixa</td>
+          <td>2</td>
+          <td>2ana</td>
+        </tr>
+        <tr>
+          <td>Toli Ramos</td>
+          <td>toli.ramos@yahoo.com</td>
+          <td>Caixa</td>
+          <td>2</td>
+          <td>2toli</td>
+        </tr>
+        <tr>
+          <td>Flavinho Pneu</td>
+          <td>flavio.pneu@yahoo.com</td>
+          <td>Estoquista</td>
+          <td>3</td>
+          <td>3flavio</td>
+        </tr>
+        <tr>
+          <td>Pedro Alves</td>
+          <td>pedro.alves@hotmail.com</td>
+          <td>Atendente</td>
+          <td>4</td>
+          <td>4pedro</td>
+        </tr>
+        <tr>
+          <td>Maria Catarina</td>
+          <td>maria.catarina@gmail.com</td>
+          <td>Atendente</td>
+          <td>4</td>
+          <td>4maria</td>
+        </tr>
+      </table>
+      <div class="botoesHeader">
+        <a href="../NRW Supermarket Web/index.html">Voltar</a>
+    </div>      
+</body>
+
+<script language = javascript>
+
+  senha = 'nrw2022';
+  senhadig = prompt("Digite a senha de login dos funcionarios: ","")
+
+  if (senha != senhadig){
+    alert('Acesso negado! Tente novamente em outro momento.');
+    top.location.href='index.html';
+  }
+
+</script>
+
+</html>
