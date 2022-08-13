@@ -1,0 +1,34 @@
+( V ) A codificacao de Huffman é lossless (sem perdas)
+( V ) Na codificação de Huffman, um código nunca é prefixo de outro.
+( V ) Tries, em geral, são mais rápidas do que árvores binárias de pesquisa para processar strings.
+( F ) Tabelas hash ocupam menos espaço de memória do que arvores binarias de pesquisa
+( V ) Fazer uma busca em uma árvore binária de pesquisa pode ser tão lento quanto em uma lista encadeada.
+( F ) Em uma busca em profundidade do tipo “pós-ordem” em árvore, o último elemento a ser impresso (supondo que a busca imprima os elementos ao visitá-los) será o maior elemento da árvore.
+( F ) Achar o menor elemento de uma tabela hash (implementada de forma tradicional) é mais rápido do que achar o menor elemento em uma árvore binária de pesquisa balanceada.
+( F ) Todos os nodos de uma árvore B onde cada nodo possui capacidade para 4 elementos devem possuir pelo menos 2 elementos.
+
+( V ) Dado um array infinito e ordenado, é possível verificar a existência de um elemento n em tempo menor que O(n).
+( V ) É possível implementar um Merge sort não estável.
+( V ) É possível saber o tamanho de um MyVec sem usar loops e variáveis size.
+( V ) É possível saber o tamanho de um MyList sem usar loops e variáveis size.
+( F ) Inserir ordenadamente um um MyList é tão complexo (tempo) que em um MyVec em todos os casos.
+( F ) Como iteradores se comportam como ponteiros, é possível fazer Busca Binária tão eficiente quando em um MyVec em um MyList.
+( V ) Sempre que se percorrer uma árvore em pré-ordem, o maior elemento ficará no final.
+( F ) Suponha que, ao dividir todas as pessoas pelo seu cpf, a quantidade de pessoas por grupo será uniforme. Assim, usar uma função hash que leva em conta apenas o primeiro dígito do cpf será bem eficiente.
+( V ) Independente se um par de valor e chave for armazenado numa tabela hash ou array em que a posição é a chave, a complexidade para se achar o menor valor é a mesma.
+
+( V ) Os 3 maiores elementos do heap armazenados em um array são os 3 primeiros elementos do array.
+( F ) Percorrer os elementos de uma tabela hash em ordem crescente tem complexidade Θ(n)
+( V ) Em uma busca em profundidade do tipo “in-ordem”, o primeiro elemento a ser impresso (supondo que a busca imprima os elementos ao visitá-los) será o menor elemento da árvore.
+( V ) As principais características que uma função hash deve ter é: ser eficiente e gerar hashs distintos para entradas distintas.
+( V ) O menor elemento do heap é um dos dois últimos elementos do array usado para representar esse heap.
+( V ) Os k (para qualquer k entre 1 e n) primeiros elementos do array usado para representar um heap formam sempre um heap válido.
+( F ) O custo de se encontrar o maior elemento do heap e’ Θ(log n).
+( V ) Heaps são árvores binárias de pesquisa (mas muitas vezes são armazenados usando arrays).
+( V ) Uma trie pode ser utilizada para listar todas as palavras compartilhando um mesmo prefixo de forma eficiente.
+( F ) O maior elemento de uma árvore B sempre estará em uma folha.
+( F ) O custo de se percorrer todos elementos de uma árvore binária não balanceada e’  Θ(n2).
+( V ) A ordenação indireta normalmente é mais eficiente do que a direta quando os dados a serem ordenados são registros (structs ou objetos) muito grandes.
+( V ) Dado um vetor V não ordenado e uma chave de pesquisa K, é melhor pesquisar por K em V
+utilizando uma busca sequencial do que utilizando uma busca binária porque, quando o array não
+está ordenado, a pesquisa binária é mais lenta do que a sequencial.
