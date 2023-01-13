@@ -1,5 +1,5 @@
 # Bacharelado em Ciência da Computação
-O Repositório possui todas atividades, práticas, trabalhos, provas e disciplinas realizadas durante os períodos cursados na minha grauduação na UFV - Universidade Federal de Viçosa. Além disso, na maioria das implementações são usadas as tecnologias C++ e JavaScript, utilizando as lingaguens como ferramenta 
+O Repositório possui todas atividades, práticas, trabalhos, provas e disciplinas realizadas durante os períodos cursados na minha graduação na UFV - Universidade Federal de Viçosa. Além disso, na maioria das implementações são usadas as tecnologias C++ e JavaScript, utilizando as lingaguens como ferramenta 
 de estudo para assuntos diversos na computação, como orientação a objetos, estrutura de dados e controle de concorrência.
 
 # Períodos  
