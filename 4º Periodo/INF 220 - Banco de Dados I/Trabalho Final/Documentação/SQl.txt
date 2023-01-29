@@ -1,0 +1,163 @@
+========== Rafael ==========
+== Consultas ==
+
+select hotel.nome, apartamento.numero 
+from cliente inner join reserva on cliente.idCliente  = reserva.idCliente  
+inner join apartamento on reserva.idApartamento = apartamento.idApartamento 
+inner join hotel on apartamento.idHotel = hotel.idHotel 
+where  cliente.nome = 'Andre Feijo';
+
+== Criacao de Tabelas == 
+
+create table Cliente (
+    idCliente    INT not null primary key auto_increment,
+    nome    VARCHAR(100),
+    email    VARCHAR(100),
+    senha    VARCHAR(100),
+    telefone VARCHAR(100),
+    profissao VARCHAR(100),
+    nacionalidade    VARCHAR(100),
+    dataNascimento date,
+    genero VARCHAR(100),
+	   numeroIdentidade VARCHAR(100),
+	   tipoIdentidade VARCHAR(100),
+    orgaoExpedidorIdentidade VARCHAR(100),
+    cpf VARCHAR(100),
+    residencia VARCHAR(100),
+    cidade VARCHAR(100),
+    estado VARCHAR(100),
+    pais VARCHAR(100) 
+);
+
+create table  Reserva (
+    idReserva    INT not null primary key auto_increment,
+    cidadeOrigem VARCHAR(100),
+    estadoOrigem VARCHAR(100),
+    paisOrigem VARCHAR(100),
+    cidadeDestino VARCHAR(100),
+    estadoDestino VARCHAR(100),
+    paisDestino VARCHAR(100),
+    motivoHospedagem VARCHAR(100),
+    meioTransporte VARCHAR(100),
+    dataEntrada    DATE,
+    dataSaida    DATE,
+    qntdPessoas    INT
+ );
+ 
+ create table Brinde (
+	idBrinde INT not null primary key auto_increment,
+	nome VARCHAR(100),
+	cor VARCHAR(100),
+	fabricante VARCHAR(100)
+);
+
+== Alteracao de Tabelas ==
+
+
+== Outros ==
+
+CREATE TRIGGER contConsumoTotal AFTER INSERT ON Consumo
+  FOR EACH ROW
+BEGIN
+    UPDATE Conta SET precoTotal = precoTotal + NEW.precoTotal WHERE idConta = NEW.idConta;
+END;
+
+========== PEDRO ==========
+
+=======================================================================================================================================================================
+Apartamento)
+
+use HoteisBomSono;
+create table Apartamento (idApartamento int not null primary key auto_increment, qntdCamaSolteiro int, qntdCamaCasal int, adaptado bool, frigobar bool);
+
+
+alter table Apartamento add column numero int;
+alter table Apartamento add column ocupado bool;
+
+ALTER TABLE Apartamento  ADD CONSTRAINT fkIdHotelApartamento FOREIGN KEY (idHotel) REFERENCES Hotel (idHotel);
+
+insert into apartamento (qntdCamaSolteiro, qntdCamaCasal, adaptado, frigobar, idHotel, numero, ocupado)
+values (0, 1, false, true, 3, 1, false);
+
+insert into apartamento (qntdCamaSolteiro, qntdCamaCasal, adaptado, frigobar, idHotel, numero, ocupado)
+values (0, 2, false, true, 3, 2, false);
+
+insert into apartamento (qntdCamaSolteiro, qntdCamaCasal, adaptado, frigobar, idHotel, numero, ocupado)
+values (1, 0, false, true, 2, 8, false);
+ =======================================================================================================================================================================
+Reserva)
+ 
+insert into reserva (dataEntrada , dataSaida , qntPessoas)
+values ('2022-11-25', '2022-11-30', 2);
+
+insert into reserva (dataEntrada , dataSaida , qntPessoas, idCliente, idApartamento)
+values ('2023-06-12', '2023-06-16', 3, 1, 4);
+
+insert into reserva (dataEntrada , dataSaida , qntPessoas) values ('2022-12-05', '2022-12-19', '8');
+
+alter table reserva  add column idHotel int;
+ALTER TABLE reserva  ADD CONSTRAINT fkIdHotel FOREIGN KEY (idHotel) REFERENCES Hotel (idHotel);
+
+update reserva set idApartamento = 7 where idReserva = 8;
+
+update reserva set idHotel =  where idCliente = 3;
+
+select reserva.idReserva, reserva.dataEntrada, reserva.dataSaida, reserva.qntPessoas, hotel.nome
+from reserva inner join apartamento on reserva.idApartamento = apartamento.idApartamento inner join hotel on apartamento.idHotel = hotel.idHotel
+where idCliente = 3; 
+
+
+#select apartamento.idApartamento 
+#from apartamento inner join hotel on apartamento.idHotel = hotel.idHotel 
+#where apartamento.frigobar =1 and apartamento.adaptado =0 and apartamento.qntdCamaSolteiro =1 and apartamento.qntdCamaCasal =0 and hotel.nome ='Pedra Azul';
+
+alter table reserva  add column idApartamento int;
+ALTER TABLE reserva  ADD CONSTRAINT fkIdApartamento FOREIGN KEY (idApartamento) REFERENCES Apartamento (idApartamento);
+=======================================================================================================================================================================
+Cliente)
+
+use HoteisBomSono;
+
+#create table Cliente (idCliente int not null primary key auto_increment, nome varchar(100), email varchar(100), telefone varchar(100), senha varchar(100), nacionalidade varchar(100), cep varchar(100), cidade varchar(100), bairro varchar(100), numero int);
+
+#create table Reserva (idReserva int not null primary key auto_increment, dataEntrada date, dataSaida date, qntPessoas int);
+
+#create table Conta (idConta int not null primary key auto_increment, qntProdutos int);
+
+#insert into cliente (nome, email, telefone, senha, nacionalidade, cep, cidade, bairro, numero)
+#values ('André', 'andre@gmail.com', '(28)999853774', 'abc1457', 'brasileiro', '29500-123', 'Cordeiro', 'Limoeiro', 123);
+
+#update cliente set nacionalidade = 'Brasileiro' where idCliente = 1;
+#update cliente set nome = 'André Feijó' where idCliente = 2;
+=======================================================================================================================================================================
+Hotel)
+create table Hotel (idHotel int not null primary key auto_increment, nome varchar(100), telefone varchar(100), qntdQuartos int, cep varchar(100), cidade varchar(100), bairro varchar(100), numero int);
+
+alter table Hotel add column qntdApartamentos int;
+
+update hotel set qntdApartamentos = 2 where idHotel = 1;
+
+select nome from hotel;
+=======================================================================================================================================================================
+Cargo)
+
+use hoteisbomsono;
+
+create table cargo (idCargo int not null primary key auto_increment, nome varchar(100), salario float, comissao float);
+=======================================================================================================================================================================
+Funcionario)
+
+use hoteisbomsono;
+create table Funcionario (idFuncionario int not null primary key auto_increment, nome varchar(100), email varchar(100), senha varchar(100));
+
+alter table funcionario  add column idHotel int;
+ALTER TABLE funcionario  ADD CONSTRAINT fkIdHotel FOREIGN KEY (idHotel) REFERENCES Hotel (idHotel);
+=======================================================================================================================================================================
+FK)
+# Adicionar chave estrangeira depois da tabela criada
+#alter table cliente add column idReserva int;
+#ALTER TABLE cliente ADD CONSTRAINT fkIdReserva FOREIGN KEY (idReserva) REFERENCES reserva (idReserva);
+
+#alter table reserva  add column idCliente int;
+#ALTER TABLE reserva  ADD CONSTRAINT fkIdCliente FOREIGN KEY (idCliente) REFERENCES cliente (idCliente);
+=======================================================================================================================================================================

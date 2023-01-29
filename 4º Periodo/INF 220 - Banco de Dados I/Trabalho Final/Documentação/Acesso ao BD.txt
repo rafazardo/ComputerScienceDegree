@@ -1,0 +1,36 @@
+== Acessar BD ==
+Link: http://15.204.135.205:888/phpmyadmin_21187594a562a3e3/index.php
+Usuario: root
+Senha: root123
+
+== aaPainel == 
+https://15.204.135.205:7800/painel
+Usuario: rafa
+Senha: rafa
+
+== Terminous == 
+User: root 
+Pass: SqoT6CFn0gA1
+IPv4: 15.204.135.205
+IPv6: 
+
+== Usuarios Personalizados DBevear == 
+Download DBeaver: https://dbeaver.io/download/
+Host: 15.204.135.205
+
+Usuario: rafael
+Senha: root123
+
+Usuario: pedro
+Senha: root123
+
+Usuario: natascha
+Senha: root123
+
+== Link do Site ==
+http://15.204.135.205/
+
+== Acesso FileZilla == 
+Host: 15.204.135.205
+Username: rafael
+Password: rafael

@@ -1,0 +1,134 @@
+%%gpu
+#include<stdio.h>
+#include<cuda.h>
+
+#define BLOCKSIZE 256  //threads por bloco
+#define RANGE  128     //deslocamento utilizado para cálculo de B
+
+/*
+CUDA para Somatorio com Memoria Compartilhada
+- Trabalho Prático 3 da Disciplina INF 310 - Programacao concorrente e distribuida
+- Objetivos: praticar monitores
+- Criado por Rafael Zardo em 17/12/2022
+*/
+
+/*
+Informacoes IMPORTANTES:
+- O programa utiliza memoria compartilhada.
+- O código trata corretamente arrays grandes divididos em mais de um bloco.
+- O programa foi feito utilizando CUDA Toolkits (mais facil para identificar erros) a versao final foi enviada para o COLAB (e testada)
+- A memoria compartilhada deve sempre ter 2*BLOCKSIZE para que o programa funcione corretamente
+*/
+
+__global__ void sumVector(int *m, int *p, int size) {
+  __shared__ int memoriaCompartilhada[2*BLOCKSIZE];
+
+  int idAtual = threadIdx.x + (blockIdx.x * blockDim.x);
+  int idTx = threadIdx.x;
+  int endBlock = BLOCKSIZE-1;
+
+  // Preenchendo a memoria compartilhada na parte esquerda
+  if (idTx == 0) {
+      for (int j = 0; j < RANGE; j++) {
+          if ((j - RANGE + idAtual) >= 0) memoriaCompartilhada[j] = m[j - RANGE + idAtual]; // Posicao valida, definimos o valor do array normal
+          else memoriaCompartilhada[j] = 0; // Posicao invalida, definimos como zero    
+      }
+  }
+
+  // Preenchendo a memoria compartilhada na parte direita
+  if (idTx == endBlock) {
+      for (int j = 1; j <= RANGE; j++) {
+          if ((idAtual + j) < size) memoriaCompartilhada[idTx + j + RANGE] = m[idAtual+j]; // Posicao valida, definimos o valor do array normal
+          else memoriaCompartilhada[idTx + j + RANGE] = 0; // Posicao invalida, definimos como zero    
+      }
+  }    
+
+  // Preenchendo a memoria compartilhada no centro (nao ha execessoes para serem tratadas)
+  memoriaCompartilhada[RANGE + idTx] = m[idAtual]; 
+
+  __syncthreads(); // Barreira esperando todas threads
+
+  // Apos todas posicoes serem calculadas, podemos passar a mesma para o somatorio
+  int sum = 0;
+  for(int j = idTx; j <= idTx + 2*RANGE; j++) sum += memoriaCompartilhada[j];
+
+  __syncthreads(); // Barreira esperando todas threads 
+
+  p[idAtual] = sum; 
+}
+
+void initArray(int *a, int n) {
+    for (int i =0; i<n; ++i) 
+        a[i]=i;
+}
+
+void printArray(int *a, int n) {
+    int maxPrint=20;
+    for (int i =0; i<(n>maxPrint ? maxPrint : n); ++i) 
+        printf("%3d ",a[i]);
+    if (n>maxPrint) printf("... (array truncado)");
+    printf("\n");
+}
+
+bool checkArray(int *a, int *b, int n) {
+    for (int i =0; i<n; ++i) 
+        if (a[i]!=b[i])
+            return false;
+    return true;
+}
+
+void execHost(int *A, int n, int *B) {
+    for(int i=0; i<n; i++) {
+        int soma=0;
+        for(int j=i-RANGE; j<=i+RANGE; j++)
+            if(j >= 0 && j<n)
+                soma+=A[j];
+        B[i]=soma;
+    }
+}
+
+int main() {
+    int size=1<<20;             //tamanho dos arrays A e B
+    int dsize=size*sizeof(int); //tamanho dos dados
+    int *a;
+    int *b;                     //array B a ser calculado na GPU
+    int *bHost;                 //array B calculado na CPU
+    a=(int*)malloc(dsize);
+    b=(int*)malloc(dsize);
+    bHost=(int*)malloc(dsize);   
+
+    initArray(a,size);
+
+    // Alocando memoria no gpu
+    int *cudaA;
+    int *cudaB;
+    cudaMalloc((void**)&cudaA, dsize);
+    cudaMalloc((void**)&cudaB, dsize);
+
+    // Copiando valores do array da CPU para GPU
+    cudaMemcpy(cudaA, a, dsize, cudaMemcpyHostToDevice);
+
+    printf("    A: ");
+    printArray(a,size);
+    
+    printf("B-GPU: ");
+    sumVector<<<ceil((1.0 * size) / BLOCKSIZE), BLOCKSIZE>>>(cudaA, cudaB, size);
+    cudaMemcpy(b, cudaB, dsize, cudaMemcpyDeviceToHost);
+    printArray(b,size);
+
+    printf("B-CPU: ");
+    execHost(a, size, bHost);
+    printArray(bHost,size);
+
+    if (checkArray(b,bHost,size))
+        printf("Resultados iguais\n");
+    else
+        printf("Resultados diferentes\n");
+
+    free(bHost);
+    free(a);
+    free(b);
+    cudaFree(cudaA);
+    cudaFree(cudaB);
+    return 0;
+}

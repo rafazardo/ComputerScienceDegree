@@ -1,0 +1,32 @@
+== Melhorias RFZ: ==
+
+- Alterar os possíveis campos de Bool, para marchar SIM/Nao - Pois melhora visualização no PHP  (Feito)
+Comentarios: 
+PFB: Implementou uma solucao na parte front end que ajeita isso
+
+- Faz sentido remover elementos de tabela N para N? (Feito)
+Comentarios:
+
+- Adicionar triggers em Hotel na coluna apartamento, onde sempre que um apartamento for vinculado a um hotel, aumentar o numero de apartamentos daquele hotel. (Feito)
+Comentarios:
+RFZ: Nao sera necessario isso, nao muda nada
+
+- Definir as chaves estrangeira como delete on cascate (feito)
+Comentarios:
+
+- Deletar coluna ocupado, nao sera necessario a mesma
+Comentarios:
+
+- Adicionar na reserva forma de pagamento (Feito)
+Comentarios:
+
+== Melhorias PFB: ==
+- Colocar tabela de apartamentos na tela de reserva (feito)
+
+- Tem que colocar colunas estado e pais na tabela de hotel
+
+- Não podemos deletar reservas em que houve hospedagem
+
+- criar trigger para toda vez que houver reserva, criar uma conta
+
+== Melhorias NMP: ==
