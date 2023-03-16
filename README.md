@@ -1,6 +1,5 @@
 # Bacharelado em Ciência da Computação
-O Repositório possui todas atividades, práticas, trabalhos, provas e disciplinas realizadas durante os períodos cursados na minha graduação na UFV - Universidade Federal de Viçosa. Além disso, na maioria das implementações são usadas as tecnologias C++ e JavaScript, utilizando as lingaguens como ferramenta 
-de estudo para assuntos diversos na computação, como orientação a objetos, estrutura de dados e controle de concorrência.
+O repositório contém todas as atividades, práticas, trabalhos, provas e disciplinas que realizei durante o meu período de graduação na UFV - Universidade Federal de Viçosa. A maioria dessas implementações foi desenvolvida utilizando tecnologias em C++ e JavaScript, que foram utilizadas como ferramentas de estudo para diversos tópicos em ciência da computação, incluindo orientação a objetos, estrutura de dados e controle de concorrência.
 
 # Períodos  
 
@@ -33,6 +32,12 @@ de estudo para assuntos diversos na computação, como orientação a objetos, e
 * INF 332 - Projeto e Análise de Algoritmos
 
 ## 5º Período 2023/1 (Cursando)
+* INF 221 - Engenharia de Software I
+* INF 284 - Metaheurísticas
+* INF 331 - Linguagens Formais e Autômatos
+* INF 420 - Inteligência Artificial I
+* INF 450 - Arquitetura de Computadores
+* INF 452 - Redes de Computadores
 
 ## 6º Período 2023/2 (a Cursar)
 
