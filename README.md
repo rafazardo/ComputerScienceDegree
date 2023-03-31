@@ -1,5 +1,5 @@
 # Bacharelado em Ciência da Computação
-O repositório contém todas as atividades, práticas, trabalhos, provas e disciplinas que realizei durante o meu período de graduação na UFV - Universidade Federal de Viçosa. A maioria dessas implementações foi desenvolvida utilizando tecnologias em C++ e JavaScript, que foram utilizadas como ferramentas de estudo para diversos tópicos em ciência da computação, incluindo orientação a objetos, estrutura de dados e controle de concorrência.
+O repositório contém todas as atividades, práticas, trabalhos, provas e disciplinas que realizei durante o meu período de graduação na Universidade Federal de Viçosa. A maioria dessas implementações foi desenvolvida utilizando tecnologias em C++ e JavaScript, que foram utilizadas como ferramentas de estudo para diversos tópicos em ciência da computação, incluindo orientação a objetos, estrutura de dados e controle de concorrência.
 
 # Períodos  
 
