@@ -31,7 +31,7 @@ O repositório contém todas as atividades, práticas, trabalhos, provas e disci
 * INF 330 - Teoria e Modelos de Grafos
 * INF 332 - Projeto e Análise de Algoritmos
 
-## 5º Período 2023/1 (Cursando)
+## 5º Período 2023/1 (Cursado)
 * INF 221 - Engenharia de Software I
 * INF 284 - Metaheurísticas
 * INF 331 - Linguagens Formais e Autômatos
@@ -39,7 +39,11 @@ O repositório contém todas as atividades, práticas, trabalhos, provas e disci
 * INF 450 - Arquitetura de Computadores
 * INF 452 - Redes de Computadores
 
-## 6º Período 2023/2 (a Cursar)
+## 6º Período 2023/2 (Cursando)
+* INF 216 - Projeto e Implementação de Jogos Digitais
+* INF 222 - Computação Experimental
+* INF 390 - Computação Gráfica
+* INF 721 - Aprendizado em Redes Neurais Profundas
 
 ## 7º Período 2024/1 (a Cursar)
 
